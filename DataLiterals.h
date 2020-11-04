@@ -1,9 +1,12 @@
 #pragma once
 #include <fstream> // for std::fpos_t 
-#include <cmath> // for pow
 
 namespace DataLiterals {
 	typedef std::fpos_t DataType;
+
+	constexpr DataType pow(DataType x, DataType y) {
+		return y == 0 ? 1 : x * pow(x, y - 1);
+	}
 
 	// Kilobytes
 	constexpr DataType operator""kb(const unsigned long long x)
